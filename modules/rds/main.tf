@@ -15,7 +15,7 @@ resource "aws_security_group" "rds_sg" {
   }
 
   egress {
-    description      = "Todo tráfego de saída permitido"
+    description      = "Trafego de saida permitido"
     from_port        = 0
     to_port          = 0
     protocol         = "-1"
@@ -29,11 +29,11 @@ resource "aws_security_group" "rds_sg" {
 
 # Criação da instância RDS MySQL
 resource "aws_db_instance" "rds_instance" {
-  identifier        = var.db_name
+  identifier        = lower(replace(var.db_name, "_", "-"))
   engine            = "mysql"
   instance_class    = "db.t2.micro"
   allocated_storage = 20
-  name              = var.db_name
+  #name              = var.db_name
   username          = var.db_username
   password          = var.db_password
   parameter_group_name = "default.mysql8.0"

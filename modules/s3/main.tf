@@ -3,21 +3,33 @@
 # Criação do bucket S3
 resource "aws_s3_bucket" "this" {
   bucket = var.bucket_name
-  acl    = "private"
-
   tags = {
     Name = var.bucket_name
   }
+}
 
-  versioning {
-    enabled = true
+# Adicionar o recurso aws_s3_bucket_acl
+resource "aws_s3_bucket_acl" "this" {
+  bucket = aws_s3_bucket.this.id
+  acl    = "private"
+}
+
+# Adicionar o recurso aws_s3_bucket_versioning
+resource "aws_s3_bucket_versioning" "this" {
+  bucket = aws_s3_bucket.this.id
+
+  versioning_configuration {
+    status = "Enabled"
   }
+}
 
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+# Adicionar o recurso aws_s3_bucket_server_side_encryption_configuration
+resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
+  bucket = aws_s3_bucket.this.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
     }
   }
 }

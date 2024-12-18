@@ -54,7 +54,7 @@ resource "aws_security_group" "ec2_sg" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = [var.candidate_ip]
+    cidr_blocks      = ["192.168.1.0/24"]
   }
 
   ingress {
@@ -74,7 +74,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   egress {
-    description      = "Todo tráfego de saída permitido"
+    description      = "Trafego de saida permitido"
     from_port        = 0
     to_port          = 0
     protocol         = "-1"

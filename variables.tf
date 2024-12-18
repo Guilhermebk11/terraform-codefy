@@ -39,12 +39,14 @@ variable "availability_zones" {
 variable "s3_bucket_name" {
   description = "Nome do bucket S3"
   type        = string
+  default     = "meu-bucket-padrao"
 }
 
 # AMI da instância EC2
 variable "ec2_ami" {
   description = "ID da AMI para a instância EC2"
   type        = string
+  default     = "ami-padrao"
 }
 
 # Tipo da instância EC2
@@ -58,24 +60,28 @@ variable "ec2_instance_type" {
 variable "ec2_key_name" {
   description = "Nome da key pair para acesso SSH à instância EC2"
   type        = string
+  default     = "minha-keypair-padrao"
 }
 
 # IP do candidato para acesso SSH
 variable "candidate_ip" {
   description = "IP do candidato para permitir acesso SSH"
   type        = string
+  default     = "0.0.0.0/0"
 }
 
 # Nome do banco de dados RDS
 variable "rds_db_name" {
   description = "Nome do banco de dados RDS MySQL"
   type        = string
+  default     = "meubanco_padrao"
 }
 
 # Usuário do banco de dados RDS
 variable "rds_db_username" {
   description = "Nome de usuário do banco de dados RDS MySQL"
   type        = string
+  default     = "admin_padrao"
 }
 
 # Senha do banco de dados RDS
