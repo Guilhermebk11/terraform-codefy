@@ -37,10 +37,10 @@ module "ec2" {
 module "rds" {
   source = "./modules/rds"
 
-  db_name         = var.rds_db_name
-  db_username     = var.rds_db_username
-  db_password     = var.rds_db_password
-  vpc_id          = module.vpc.vpc_id
-  subnet_ids      = module.vpc.private_subnet_ids
+  db_name            = var.rds_db_name
+  db_username        = var.rds_db_username
+  db_password        = var.rds_db_password
+  vpc_id             = module.vpc.vpc_id
+  subnet_ids         = module.vpc.private_subnet_ids
   security_group_ids = [module.ec2.security_group_id]
 }

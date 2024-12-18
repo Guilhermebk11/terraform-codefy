@@ -31,7 +31,7 @@ resource "aws_security_group" "rds_sg" {
 resource "aws_db_instance" "rds_instance" {
   identifier        = lower(replace(var.db_name, "_", "-"))
   engine            = "mysql"
-  instance_class    = "db.t2.micro"
+  instance_class    = "db.t3.micro"
   allocated_storage = 20
   #name              = var.db_name
   username          = var.db_username

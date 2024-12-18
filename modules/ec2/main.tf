@@ -46,11 +46,11 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 # Criação do Security Group para a EC2
 resource "aws_security_group" "ec2_sg" {
   name        = "ec2_security_group"
-  description = "Security Group para a instância EC2"
+  description = "Security Group for EC2 instance"
   vpc_id      = var.vpc_id
 
   ingress {
-    description      = "Acesso SSH"
+    description      = "SSH Access"
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
@@ -58,7 +58,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   ingress {
-    description      = "Acesso HTTP"
+    description      = "HTTP Access"
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
@@ -66,7 +66,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   ingress {
-    description      = "Acesso HTTPS"
+    description      = "HTTPS Access"
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
@@ -74,7 +74,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   egress {
-    description      = "Trafego de saida permitido"
+    description      = "Outbound traffic allowed"
     from_port        = 0
     to_port          = 0
     protocol         = "-1"

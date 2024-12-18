@@ -9,10 +9,12 @@ resource "aws_s3_bucket" "this" {
 }
 
 # Adicionar o recurso aws_s3_bucket_acl
-resource "aws_s3_bucket_acl" "this" {
+/*resource "aws_s3_bucket_acl" "this" {
   bucket = aws_s3_bucket.this.id
   acl    = "private"
-}
+
+  depends_on = [aws_s3_bucket.this]
+}*/
 
 # Adicionar o recurso aws_s3_bucket_versioning
 resource "aws_s3_bucket_versioning" "this" {
