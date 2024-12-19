@@ -1,8 +1,8 @@
-# Terraform-codefy
+# Terraform-Codefy
 
-## Projeto Tecnico Terraform
+# Projeto Tecnico Terraform
 
-# Alerta Importante:
+## Importante:
 
 Antes de iniciar o provisionamento da infraestrutura, é **fundamental** que você crie um usuário na AWS, Em seguida crie uma chave de acesso na EC2 e Siga as instruções abaixo:
 
@@ -164,7 +164,7 @@ Substitua `"caminho/do/arquivo.tfvars"` pelo caminho real do arquivo que você d
 | **NAT Gateway (Processamento de Dados)** | Processamento de dados (10 GB por mês)             | 2              | $0,45                        |
 | **Total**                        | Total de custos para VPC e NAT Gateway               | 2              | **$66,60**                   |
 
-# Explicação:
+## Explicação:
 - **VPC com Sub-redes**: Uma VPC foi configurada com 2 sub-redes públicas e 2 privadas, conforme solicitado.
 - **Internet Gateway (IGW)**: Acesso à internet para as sub-redes públicas, mas sem custo adicional, pois o IGW é gratuito (exceto pelo tráfego).
 - **NAT Gateway**: Usado para permitir o tráfego de saída das sub-redes privadas para a internet. Dois NAT Gateways são usados para alta disponibilidade (1 por AZ).
